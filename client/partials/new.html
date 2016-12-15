@@ -1,0 +1,10 @@
+<form ng-controller="NewController as nc">
+    <label for="firstName">First Name</label>
+    <input type="text" ng-model="nc.firstName">
+    <label for="lastName">Last Name</label>
+    <input type="text" ng-model="nc.lastName">
+    <label for="birthDate">Birth Date</label>
+    <input type="date" ng-model="nc.birthDate">
+    <button type="button" ng-click="nc.create()">Create</button>
+</form>
+<span ng-if = "vm.didICallBackEnd">{{nc.message}}</span>

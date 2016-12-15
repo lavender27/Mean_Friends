@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MEAN Friends</title>
+</head>
+
+<body>
+    Filer Birthday: <input type="text" ng-model="search" placeholder="filter ...">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Show</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <tbody>
+            <tr data-ng-repeat="friend in friends">
+                <td>
+                    {{friend.firstName}}
+                </td>
+                <td>
+                    {{friend.lastName}}
+                </td>
+                <td>
+                    <button>
+                        <a role="button" href="#!/friends/{{friend._id}}">Show</a>
+                    </button>
+                </td>
+                <td>
+                    <button><a role="button" href="#!/friends/{{friend._id}}">Edit</a>
+                    </button>
+                </td>
+                <td> <button ng-click="deleteFriend(friend._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button><a href="#!/friends/new">New Friend</a></button>
+</body>
+
+</html>
