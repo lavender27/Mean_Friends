@@ -51,11 +51,12 @@ function FriendsController() {
 
     this.update = function(req, res) {
       console.log('server - update friend id: ' + req.params.id);
-      Friend.findOne({ __id: req.params.id} , function(err, friend) {
+      Friend.findOne({ _id: req.params.id} , function(err, friend) {
         if(err) {
           console.log(err);
           res.json(err);
         } else {
+          console.log('UPDATING THIS FRIEND:', friend);
           friend.firstName = req.body.firstName;
           friend.lastName = req.body.lastName;
           friend.birthDate = req.body.birthDate;
@@ -72,7 +73,7 @@ function FriendsController() {
 
     this.delete = function(req, res) {
       console.log('REQ.PARAMS: ', req.params);
-      Friend.remove({ __id: req.parmas.id}, function(err, friend) {
+      Friend.remove({ _id: req.parmas.id}, function(err, friend) {
         if (err) {
           console.log('error delete a Friend from db');
           res.json(err);
@@ -85,8 +86,8 @@ function FriendsController() {
     };
 
     this.show = function(req, res) {
-      console.log('Found friend');
-      Friend.findOne({ __id: req.params.id}, 'firstName lastName birthDate', function(err, friend) {
+      console.log('Found friend', req.params);
+      Friend.findOne({ _id: req.params.id}, 'firstName lastName birthDate', function(err, friend) {
         if(err) {
           console.log('error getting Friend from db');
         } else {

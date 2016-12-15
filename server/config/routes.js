@@ -9,4 +9,9 @@ module.exports = function(app) {
   app.post('/friends', friends.create);
   app.put('/friends/:id', friends.update);
   app.delete('/friends/:id/delete', friends.delete);
+
+  // app.get('/url', function(req, res) {
+  //   console.log('REACHED /url ROUTE');
+  //   friend.method(req, res);
+  // })
 }

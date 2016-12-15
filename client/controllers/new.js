@@ -20,8 +20,12 @@ myApp.controller('NewController', ['$scope', 'friendsFactory', '$location', func
           birthDate: nc.birthDate
         }
         friendsFactory.create(newFriend, function (result) {
-          console.log(result);
-          $location.url('/');
+          if (result.errors) {
+            //display the errors
+          } else {
+            console.log(result);
+            $location.url('/');
+          }
         })
     }
 
